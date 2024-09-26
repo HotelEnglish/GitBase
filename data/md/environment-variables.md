@@ -2,7 +2,7 @@
 title: Linux 系统中 Docker 拉取镜像慢
 description: 针对Linux系统的Docker 镜像替换方案
 date: '2024-08-11T13:08:05.474Z'
-lastModified: '2024-09-26T08:25:02.014Z'
+lastModified: '2024-09-26T08:47:31.002Z'
 ---
 自从Docker 镜像出问题后，龚老师也很久没有折腾了。
 ![file](https://scdn.begs.cn/wp-content/uploads/2024/07/1721145045-image-1721145043864.png)
