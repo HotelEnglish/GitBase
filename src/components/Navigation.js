@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { path: '/', label: 'Home' },
-  { path: '/resources', label: 'Resources' },
-  { path: '/posts', label: 'Articles' },
+  { path: '/', label: '首页' },
+  { path: '/resources', label: '资源' },
+  { path: '/posts', label: '文章' },
 ]
 
 export function Navigation() {
