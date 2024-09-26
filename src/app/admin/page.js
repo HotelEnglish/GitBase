@@ -25,8 +25,8 @@ export default function AdminPage() {
         setIsLoading(false);
       }
     } catch (error) {
-      console.error('Error checking auth:', error);
-      setError('Failed to authenticate. Please try again.');
+      console.error('检查身份验证时出错:', error);
+      setError('身份验证失败，请重试。');
       setIsLoading(false);
     }
   }, [router]);
@@ -42,13 +42,13 @@ export default function AdminPage() {
     try {
       const response = await fetch('/api/resources?source=github');
       if (!response.ok) {
-        throw new Error('Failed to fetch resources');
+        throw new Error('获取资源错误');
       }
       const data = await response.json();
       setResources(data);
     } catch (error) {
-      console.error('Error fetching resources:', error);
-      setError('Failed to fetch resources. Please try again.');
+      console.error('获取资源错误:', error);
+      setError('获取资源错误，请重试。');
     } finally {
       setIsLoading(false);
     }
@@ -82,22 +82,22 @@ export default function AdminPage() {
         body: JSON.stringify(updatedResources),
       });
       if (!response.ok) {
-        throw new Error('Failed to save resources');
+        throw new Error('保存资源错误');
       }
       await fetchResources(); // Fetch the latest data after saving
       setEditingIndex(null);
     } catch (error) {
-      console.error('Error saving resources:', error);
-      setError('Failed to save resources. Please try again.');
+      console.error('保存资源错误:', error);
+      setError('保存资源失败，请重试。');
     }
   };
 
   if (isLoading) {
-    return <div className="container mx-auto p-4">Loading...</div>;
+    return <div className="container mx-auto p-4">加载中...</div>;
   }
 
   if (error) {
-    return <div className="container mx-auto p-4">Error: {error}</div>;
+    return <div className="container mx-auto p-4">出错了: {error}</div>;
   }
 
   return (
@@ -146,7 +146,7 @@ export default function AdminPage() {
                 {editingIndex === index ? (
                   <Button onClick={() => handleSave(index)}>保存</Button>
                 ) : (
-                  <Button onClick={() => handleEdit(index)}>退出</Button>
+                  <Button onClick={() => handleEdit(index)}>编辑</Button>
                 )}
               </TableCell>
             </TableRow>
