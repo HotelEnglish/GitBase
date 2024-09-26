@@ -17,17 +17,17 @@ export function Footer() {
             <ul className="mt-4 space-y-4">
               <li>
                 <Link href="/" className="text-base text-gray-500 hover:text-gray-900">
-                  Home
+                  首页
                 </Link>
               </li>
               <li>
                 <Link href="/resources" className="text-base text-gray-500 hover:text-gray-900">
-                  Resources
+                  资源
                 </Link>
               </li>
               <li>
                 <Link href="/posts" className="text-base text-gray-500 hover:text-gray-900">
-                  Articles
+                  文章
                 </Link>
               </li>
             </ul>
