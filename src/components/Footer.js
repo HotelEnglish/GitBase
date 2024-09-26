@@ -55,7 +55,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-200 pt-8">
           <p className="text-base text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} 自豪地采用 <span style="color: blue"> GitBase </span> 技术 by 龚老师 
+            &copy; {new Date().getFullYear()} 龚老师技术加持
           </p>
         </div>
       </div>
