@@ -45,32 +45,32 @@ export default function CreateArticlePage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Create New Article</h1>
+      <h1 className="text-2xl font-bold mb-4">创建文章</h1>
       {error && <Alert variant="destructive" className="mb-4">{error}</Alert>}
       <div className="space-y-4">
         <Input
           name="title"
           value={article.title}
           onChange={handleInputChange}
-          placeholder="Article Title"
+          placeholder="文章标题"
         />
         <Input
           name="description"
           value={article.description}
           onChange={handleInputChange}
-          placeholder="Article Description"
+          placeholder="文章描述"
         />
         <Input
           name="slug"
           value={article.slug}
           onChange={handleInputChange}
-          placeholder="Article Slug (e.g., my-new-article)"
+          placeholder="文章标称 (例：my-new-article)"
         />
         <Textarea
           name="content"
           value={article.content}
           onChange={handleInputChange}
-          placeholder="Article Content (Markdown)"
+          placeholder="文章内容 (Markdown)"
           rows={20}
         />
         <Button onClick={handleSave} disabled={isLoading}>
