@@ -1,93 +1,114 @@
 ---
-title: "GitBase: A Dynamic, Database-Free Website Solution"
-description: "Explore the features and implementation of GitBase, an innovative open-source project that combines Next.js, Tailwind CSS, and GitHub API for content management."
-date: "2024-08-11"
+title: Docker 部署的项目无损搬家
+description: 如何将Docker项目无损搬家
+date: '2024-08-11'
+lastModified: '2024-09-26T08:49:58.667Z'
 ---
+因为旧服务器存在一些问题，
 
-# GitBase: A Dynamic, Database-Free Website Solution
+想要重装系统，
 
-GitBase is an innovative open-source project that offers a unique approach to building dynamic websites without the need for a traditional database. By leveraging the power of Next.js, Tailwind CSS, and the GitHub API, GitBase provides a flexible and efficient solution for content management and website development.
+但是有一个DOCKER项目非常重要，
 
-## Key Features
+需要原封不动地搬到新的服务器上，
 
-### 1. Database-Free Architecture
+看上去简单，但是我花了3天的时间才完成。
 
-GitBase eliminates the need for a conventional database by utilizing GitHub's infrastructure for data storage. This approach simplifies deployment and reduces hosting costs while maintaining the ability to manage dynamic content.
+在此记录一下过程，供大家参考。
 
-### 2. GitHub-Powered Content Management
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709185400-image-1709185399540.png)
 
-The heart of GitBase lies in its use of the GitHub API for content management. This feature allows users to:
+## 一、导出镜像
 
-- Store and retrieve content directly from GitHub repositories
-- Leverage GitHub's version control for content tracking
-- Utilize GitHub's collaboration features for content creation and editing
+首先，在旧服务器中的 DOCKER 管理界面，将镜像导出。
 
-### 3. Dynamic Content Rendering
+### 1. 安装或打开/DOCKER
+打开宝塔的DOCKER管理界面，切换到`镜像`。
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709182113-image-1709182112400.png)
 
-Despite not using a traditional database, GitBase offers dynamic content rendering capabilities. It achieves this through:
+### 2. 导出镜像
+点击需要导出的镜像后面的`导出`，并选定导出的路径和文件名，再单击导出。
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709182158-image-1709182157771.png)
 
-- On-demand fetching of content from GitHub
-- Server-side rendering with Next.js for improved performance and SEO
+### 3. 下载镜像
+转到保存镜像的文件夹，保存的镜像是以`.tar`结尾的，通过宝塔面板自带的文件下载器下载该镜像。
 
-### 4. Responsive Design with Tailwind CSS
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709182591-image-1709182591397.png)
 
-GitBase incorporates Tailwind CSS, providing:
+下载速度非常慢，我想应该是跟我的服务器的带宽（只有1M）有关。
+问了GPT4，它给出的回答如下：
 
-- A utility-first approach to styling
-- Highly customizable and responsive designs
-- Efficient styling with minimal CSS overhead
+## 导入镜像
 
-### 5. Modern React Development with Next.js
+接下来就是将原版镜像导入到新服务器
+### 1. 上传镜像文件
 
-Built on Next.js, GitBase offers:
+打开宝塔面板的文件管理，选择一个合适的文件夹将上一步导出的所有镜像上传；
 
-- Server-side rendering and static site generation capabilities
-- Optimized performance with automatic code splitting
-- Easy routing and API route creation
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709183220-image-1709183219422.png)
 
-## Implementation Details
+### 2. 导入镜像文件
 
-### Next.js Framework
+打开新服务器的DOCKER管理界面，点击`镜像`，选择刚刚上传的镜像文件所在的文件夹，并导入所有镜像文件。
 
-GitBase utilizes Next.js as its core framework, benefiting from its robust features:
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709183411-image-1709183410543.png)
 
-- File-based routing system for easy navigation setup
-- API routes for serverless function implementation
-- Image optimization and performance enhancements
+### 3. 确认镜像文件
+确认所有的镜像文件都已经导入；
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709183361-image-1709183361223.png)
 
-### GitHub API Integration
+## 三、重新部署
 
-The project integrates with the GitHub API to:
+### 1. 打包项目并上传文件到新服务器
+将原项目整个文件夹压缩，下载后上传到新服务器后解压缩。
 
-- Fetch Markdown files for content
-- Update content through GitHub's content management endpoints
-- Manage user authentication for admin functionalities
+### 2. 修改配置文件
 
-### Tailwind CSS and Shadcn/UI
+> 建议先为配置文件`docker-compose.yml`创建一个副本，以免改错了；
 
-For styling and UI components, GitBase combines:
+打开项目中的配置文件`docker-compose.yml`，修改文件中所有的镜像名称，保持与DOCKER界面的镜像名称一致；
+如：` image: astit_go_v13.9:v13.9`
 
-- Tailwind CSS for utility-first styling
-- Shadcn/UI for pre-built, customizable React components
+Ctrl+S保存修改后的配置文件。
 
-### Content Processing
+### 3. 构建镜像
 
-GitBase processes content through:
+在项目文件夹中打开终端（或打开终端CD进入项目文件夹）
+输入命令：
+```shell
+docker-compose up -d
+```
 
-- Parsing Markdown files with libraries like `gray-matter` and `remark`
-- Converting Markdown to HTML for rendering
-- Extracting metadata for SEO optimization
+### 4. 检查部署是否成功
+根据服务器的配置和镜像的大小，构建的时间可能有点长，需要耐心等待。
 
-### SEO Optimization
+```shell
+[root]# cd /www/wwwroot/fat
+[root]# docker-compose up -d
+[+] Running 5/5
+ ✔ min 4 layers [⣿⣿⣿⣿]      0B/0B      Pulled                                           678.8s 
+[+] Building 0.0s (0/0)                                                                               
+[+] Running 7/7
+ ✔ Network fat_default  Created                                                               0.4s 
+ 
+```
 
-The project implements SEO best practices by:
+通过IP+端口，检查部署是否成功。
 
-- Generating dynamic metadata for each page
-- Utilizing Next.js's built-in head management for proper SEO tags
-- Ensuring server-side rendering for better search engine indexing
 
-## Conclusion
+## 四、添加域名
 
-GitBase represents a modern approach to web development, combining the simplicity of static sites with the flexibility of dynamic content management. By leveraging GitHub's infrastructure and modern web technologies, it offers developers a powerful tool for creating efficient, scalable, and easy-to-maintain websites.
+### 1. 添加域名
 
-Whether you're building a personal blog, a documentation site, or a small to medium-sized web application, GitBase provides a solid foundation that can be easily extended and customized to meet your specific needs.
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709185042-image-1709185042023.png)
+
+### 2. 申请证书
+在宝塔面板一键申请证书。注意，要先申请证书再配置反向代理。
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709184999-image-1709184999242.png)
+
+### 3. 添加反向代理
+
+
+![file](https://scdn.begs.cn/wp-content/uploads/2024/02/1709184902-image-1709184901464.png)
+
+
