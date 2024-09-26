@@ -14,6 +14,13 @@
     "path": "data/md/environment-variables.md"
   },
   {
+    "title": "提取【书链】里的PPT课件",
+    "description": "如何用技术手段提取【书链】里的PPT课件",
+    "date": "2024-09-26T09:09:17.621Z",
+    "lastModified": "2024-09-26T09:09:17Z",
+    "path": "data/md/fetch-ppt.md"
+  },
+  {
     "title": "AI Engine Pro v2.2.1",
     "description": "AI Engine Pro v2.2.1 – ChatGPT 赋能WordPress",
     "date": "2024-08-11",
