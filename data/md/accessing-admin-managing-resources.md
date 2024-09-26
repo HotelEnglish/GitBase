@@ -2,7 +2,7 @@
 title: WP Smush Pro
 description: 易于使用的WordPress图像优化插件
 date: '2024-08-11T13:14:40.737Z'
-lastModified: '2024-09-26T05:45:19.460Z'
+lastModified: '2024-09-26T08:47:18.730Z'
 ---
 <div itemprop="text" style="font-weight: 400;">WP Smush Pro是一款性能最佳，易于使用的WordPress图像优化插件。该插件由WPMU DEV的专业开发人员开发，该团队是经验丰富的WordPress插件专业开发人员。
 
