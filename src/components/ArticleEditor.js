@@ -28,13 +28,13 @@ export default function ArticleEditor() {
     try {
       const response = await fetch(`/api/articles?path=${encodeURIComponent(articlePath)}`);
       if (!response.ok) {
-        throw new Error('Failed to fetch article');
+        throw new Error('获取文失败');
       }
       const data = await response.json();
       setArticle(data);
     } catch (error) {
-      console.error('Error fetching article:', error);
-      setError('Failed to fetch article. Please try again.');
+      console.error('获取文章出错：', error);
+      setError('无法获取文章。请重试');
     } finally {
       setIsLoading(false);
     }
@@ -53,17 +53,17 @@ export default function ArticleEditor() {
         body: JSON.stringify({ article }),
       });
       if (!response.ok) {
-        throw new Error('Failed to save article');
+        throw new Error('保存文章失败');
       }
-      alert('Article saved successfully');
+      alert('保存文章成功');
     } catch (error) {
-      console.error('Error saving article:', error);
-      setError('Failed to save article. Please try again.');
+      console.error('保存文章出错：', error);
+      setError('保存文章失败，请重试');
     }
   };
 
-  if (isLoading) return <div>Loading article...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (isLoading) return <div>加载文章...</div>;
+  if (error) return <div>出错了: {error}</div>;
 
   return (
     <div className="space-y-4">
@@ -71,22 +71,22 @@ export default function ArticleEditor() {
         name="title"
         value={article.title}
         onChange={handleInputChange}
-        placeholder="Article Title"
+        placeholder="文章标题"
       />
       <Input
         name="description"
         value={article.description}
         onChange={handleInputChange}
-        placeholder="Article Description"
+        placeholder="文章描述"
       />
       <Textarea
         name="content"
         value={article.content}
         onChange={handleInputChange}
-        placeholder="Article Content"
+        placeholder="文章内容"
         rows={20}
       />
-      <Button onClick={handleSave}>Save Article</Button>
+      <Button onClick={handleSave}>保存文章</Button>
     </div>
   );
 }
