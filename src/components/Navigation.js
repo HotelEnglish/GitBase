@@ -57,7 +57,7 @@ export function Navigation() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="inline-block font-bold">GitBase</span>
+            <span className="inline-block font-bold">龚老师科技</span>
           </Link>
           <nav className="hidden md:flex gap-6">
             {navItems.map((item) => (
@@ -88,13 +88,13 @@ export function Navigation() {
             isLoggedIn ? (
               <>
                 <Link href="/admin">
-                  <Button variant="ghost">Admin</Button>
+                  <Button variant="ghost">管理</Button>
                 </Link>
-                <Button onClick={handleLogout} variant="outline">Logout</Button>
+                <Button onClick={handleLogout} variant="outline">退出</Button>
               </>
             ) : (
               <Link href="/login">
-                <Button>Login</Button>
+                <Button>登录</Button>
               </Link>
             )
           )}
