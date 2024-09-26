@@ -57,26 +57,26 @@ export default function AdminArticlesPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Article Management</h1>
+      <h1 className="text-2xl font-bold mb-4">文章管理</h1>
       <div className="mb-4 flex justify-between">
         <Link href="/admin">
-          <Button>Back to Admin Dashboard</Button>
+          <Button>返回仪表盘</Button>
         </Link>
         <div>
-          <Button onClick={handleSync} className="mr-2">Sync Articles</Button>
+          <Button onClick={handleSync} className="mr-2">同步文章/Button>
           <Link href="/admin/articles/create">
-            <Button>Create New Article</Button>
+            <Button>新建文章</Button>
           </Link>
         </div>
       </div>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Description</TableHead>
-            <TableHead>Created</TableHead>
-            <TableHead>Last Modified</TableHead>
-            <TableHead>Actions</TableHead>
+            <TableHead>标题</TableHead>
+            <TableHead>描述</TableHead>
+            <TableHead>已创建</TableHead>
+            <TableHead>上次更改</TableHead>
+            <TableHead>操作</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -88,7 +88,7 @@ export default function AdminArticlesPage() {
               <TableCell>{new Date(article.lastModified).toLocaleString()}</TableCell>
               <TableCell>
                 <Link href={`/admin/articles/edit?path=${encodeURIComponent(article.path)}`}>
-                  <Button>Edit</Button>
+                  <Button>编辑</Button>
                 </Link>
               </TableCell>
             </TableRow>
