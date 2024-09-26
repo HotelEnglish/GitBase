@@ -63,7 +63,7 @@ export default function AdminArticlesPage() {
           <Button>返回仪表盘</Button>
         </Link>
         <div>
-          <Button onClick={handleSync} className="mr-2">同步文章/Button>
+          <Button onClick={handleSync} className="mr-2">同步文章</Button>
           <Link href="/admin/articles/create">
             <Button>新建文章</Button>
           </Link>
