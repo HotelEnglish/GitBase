@@ -21,10 +21,10 @@
     "path": "data/md/gitbase-install-guide.md"
   },
   {
-    "title": "GitBase: A Dynamic, Database-Free Website Solution",
-    "description": "Explore the features and implementation of GitBase, an innovative open-source project that combines Next.js, Tailwind CSS, and GitHub API for content management.",
+    "title": "Docker 部署的项目无损搬家",
+    "description": "如何将Docker项目无损搬家",
     "date": "2024-08-11",
-    "lastModified": "2024-08-11T11:34:30Z",
+    "lastModified": "2024-09-26T08:49:58Z",
     "path": "data/md/gitbase-introduction.md"
   },
   {
