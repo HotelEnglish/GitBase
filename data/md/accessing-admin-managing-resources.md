@@ -1,75 +1,62 @@
 ---
-title: Accessing the Admin Panel and Managing Resources in GitBase
-description: How to access the admin panel and manage your resource list in GitBase
+title: WP Smush Pro
+description: 易于使用的WordPress图像优化插件
 date: '2024-08-11T13:14:40.737Z'
+lastModified: '2024-09-26T05:45:19.460Z'
 ---
-# Accessing the Admin Panel and Managing Resources in GitBase
+<div itemprop="text" style="font-weight: 400;">WP Smush Pro是一款性能最佳，易于使用的WordPress图像优化插件。该插件由WPMU DEV的专业开发人员开发，该团队是经验丰富的WordPress插件专业开发人员。
 
-GitBase provides a user-friendly admin interface for managing your website's resources. This guide will walk you through the process of accessing the admin panel and managing your resources effectively.
+## WP Smush 简介
 
-## Accessing the Admin Panel
+WP Smush Pro插件可压缩所有图像并减小其大小，而不会损失任何视觉质量。它只是从不需要的图像中删除不必要的数据。WP Smush Pro插件可以进行无损或有损的图像压缩。
 
-1. **Navigate to the Admin URL**: Open your web browser and go to your GitBase website's URL, followed by `/admin`. For example: `https://yourgitbasesite.com/admin`.
+WP Smush Pro插件还具有功能有限的免费版本。与免费版本相比，此插件的专业版可以提高200％的速度，更好的压缩方式。它还允许您转换WebP图像格式并将其提供给用户。WebP格式比任何其他图像格式都小25％，并且Google Pagespeed推荐使用WebP格式，以提高网站性能。
 
-2. **Enter the Access Password**: You will be prompted to enter the access password. This is the `ACCESS_PASSWORD` you set in your environment variables. Enter it and click "Login".
+## WP Smush Pro的核心功能 – WordPress插件
 
-3. **Admin Dashboard**: After successful authentication, you'll be directed to the admin dashboard. Here, you'll see various management options, including "Manage Resources".
+- 压缩和调整最大大小为32MB的图像
+- 一键批量涂抹所有图像
+- 多种图像格式压缩支持
+- 自动调整图像大小
+- 45个节点的CDN（最大10GB空间）
+- 有损压缩
+- 无损压缩
+- 自动将所有PNG转换为JPEG
+- 将原始图像保存在服务器中
+- 允许删除图像的元数据
+- 延迟加载图像
+- 延迟加载动画
+- 自动检测尺寸调整不正确的图像
+- 上传压缩
+- 单目录迷信功能
+- [古腾堡](https://www.zhanzhangb.com/tag/gutenberg)支持
+- 与WPBakery页面构建器插件集成
+- 多站点支持
+- 兼容[HTTPS](https://www.zhanzhangb.com/2337.html)
+- 完美适合自动调整图像大小
 
-## Managing Resources
+## WP Smush Pro v3.15.5 更新日志
 
-### Viewing Resources
+- 改进：更新CDN位置数量
+- 改进：细微的副本和 UI 调整
+- 修复：媒体库扫描在某些网站上卡住
+- 改进：微小的副本和 UI 更改
+- 改进：代码稳定性改进
+- 修复：WP Offload Media 集成的兼容性问题
+- 修复：当存在命名冲突时，调整大小模块会删除缩略图
+- 改进：代码稳定性改进
+- 改进：专业版的图像大小限制增加
+- 修复：查询频繁运行并导致某些网站出现性能问题
+- 修复：媒体库扫描仪无法正确识别某些 MariaDB 版本
+- 新功能：Ultra Smush – 提高图像压缩水平，同时保持卓越的图像质量
+- 修复：解决了 WP 版本 < 6.0 中图像调整大小的问题
+- 修复：解决了 GoDaddy 托管 WP 托管上的 PHP 8.x 错误
+- 修复：其他小错误修复和 UI 改进
+- 改进：小的代码和文本改进
+- 改进：扫描期间更好的内存管理
 
-1. From the admin dashboard, click on "Manage Resources".
-2. You'll see a list of all current resources, displaying their names, descriptions, and URLs.
+## 下载 WP Smush Pro v3.15.5 – 图片优化插件（支持转换WebP）及其汉化包 v3.1x.x
 
-### Adding a New Resource
+将下载的汉化包文件上传至：`WP安装目录/wp-content/languages/plugins`
 
-1. On the resource management page, locate the "Add New Resource" section, typically at the bottom of the resource list.
-2. Fill in the following fields:
-   - **Name**: Enter the name of the resource.
-   - **Description**: Provide a brief description of the resource.
-   - **URL**: Enter the full URL of the resource.
-3. Click the "Add New" button to save the resource.
-4. The new resource will appear in the list, and changes will be automatically synced with your GitHub repository.
-
-### Modifying an Existing Resource
-
-1. Find the resource you want to edit in the resource list.
-2. Click the "Edit" button next to the resource.
-3. The resource's fields will become editable.
-4. Make your desired changes to the name, description, or URL.
-5. Click the "Save" button to confirm your changes.
-6. The updated resource information will be displayed in the list and synced with GitHub.
-
-### Deleting a Resource
-
-Note: The current version of GitBase might not support direct deletion through the admin interface. If you need to remove a resource:
-
-1. Edit the resource.
-2. Replace its content with placeholder text or mark it as "Deprecated" in the description.
-3. Save the changes.
-4. For permanent removal, you may need to manually delete the entry from the `resources.json` file in your GitHub repository.
-
-## Syncing Changes
-
-GitBase automatically syncs your changes with the GitHub repository configured in your environment variables. After making changes:
-
-1. The `resources.json` file in your GitHub repository will be updated.
-2. These changes will be reflected on your live site after a short delay (usually a few minutes, depending on your hosting setup).
-
-## Best Practices
-
-1. **Regular Backups**: Although GitBase uses GitHub for version control, it's a good practice to periodically backup your `resources.json` file.
-2. **Descriptive Names and Descriptions**: Use clear, concise names and descriptions for your resources to make them easy to understand and find.
-3. **URL Verification**: Always double-check the URLs you enter to ensure they are correct and functional.
-4. **Consistent Formatting**: Maintain a consistent style in your resource descriptions for a professional appearance.
-
-## Troubleshooting
-
-If you encounter issues while managing resources:
-
-1. **Changes Not Appearing**: Ensure your GitHub token has the necessary permissions, and check your GitHub repository for any error messages in the commit history.
-2. **Unable to Save**: Verify your internet connection and try refreshing the page before attempting to save again.
-3. **Access Denied**: Double-check that you're using the correct `ACCESS_PASSWORD` and that it matches the one in your environment variables.
-
-By following these steps, you should be able to effectively manage the resources on your GitBase website through the admin panel. Remember, all changes are version-controlled through GitHub, allowing you to track modifications and revert if necessary.
+</div>
