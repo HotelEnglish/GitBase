@@ -15,7 +15,7 @@ export default function ResourceList({ resources, showMoreLink = true }) {
         <h2 className="text-3xl font-bold tracking-tighter">资源</h2>
         {showMoreLink && (
           <Link href="/resources" className="text-blue-600 hover:text-blue-800 transition-colors">
-            More resources →
+            更多资源 →
           </Link>
         )}
       </div>
