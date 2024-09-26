@@ -37,13 +37,13 @@ export default function ArticleEditorPage() {
     checkAuth();
   }, [checkAuth]);
 
-  if (isLoading) return <div className="container mx-auto p-4">Loading...</div>;
-  if (error) return <div className="container mx-auto p-4">Error: {error}</div>;
+  if (isLoading) return <div className="container mx-auto p-4">加载中...</div>;
+  if (error) return <div className="container mx-auto p-4">出错了: {error}</div>;
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Edit Article</h1>
-      <Suspense fallback={<div>Loading editor...</div>}>
+      <h1 className="text-2xl font-bold mb-4">编辑文章</h1>
+      <Suspense fallback={<div>加载编辑器</div>}>
         <ArticleEditor />
       </Suspense>
     </div>
