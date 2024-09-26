@@ -102,20 +102,20 @@ export default function AdminPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
+      <h1 className="text-2xl font-bold mb-4">仪表盘</h1>
       <div className="mb-4">
         <Link href="/admin/articles">
-          <Button>Manage Articles</Button>
+          <Button>管理文章</Button>
         </Link>
       </div>
-      <h2 className="text-xl font-bold mb-4">Resource Management</h2>
+      <h2 className="text-xl font-bold mb-4">资源管理</h2>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Name</TableHead>
-            <TableHead>Description</TableHead>
-            <TableHead>URL</TableHead>
-            <TableHead>Actions</TableHead>
+            <TableHead>名称</TableHead>
+            <TableHead>描述</TableHead>
+            <TableHead>链接</TableHead>
+            <TableHead>操作</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -144,25 +144,25 @@ export default function AdminPage() {
               </TableCell>
               <TableCell>
                 {editingIndex === index ? (
-                  <Button onClick={() => handleSave(index)}>Save</Button>
+                  <Button onClick={() => handleSave(index)}>保存</Button>
                 ) : (
-                  <Button onClick={() => handleEdit(index)}>Edit</Button>
+                  <Button onClick={() => handleEdit(index)}>退出</Button>
                 )}
               </TableCell>
             </TableRow>
           ))}
           <TableRow>
             <TableCell>
-              <Input name="name" value={newResource.name} onChange={handleInputChange} placeholder="New resource name" />
+              <Input name="name" value={newResource.name} onChange={handleInputChange} placeholder="新资源名称" />
             </TableCell>
             <TableCell>
-              <Input name="description" value={newResource.description} onChange={handleInputChange} placeholder="New resource description" />
+              <Input name="description" value={newResource.description} onChange={handleInputChange} placeholder="新资源描述" />
             </TableCell>
             <TableCell>
-              <Input name="url" value={newResource.url} onChange={handleInputChange} placeholder="New resource URL" />
+              <Input name="url" value={newResource.url} onChange={handleInputChange} placeholder="新资源链接" />
             </TableCell>
             <TableCell>
-              <Button onClick={() => handleSave(-1)}>Add New</Button>
+              <Button onClick={() => handleSave(-1)}>新增</Button>
             </TableCell>
           </TableRow>
         </TableBody>
