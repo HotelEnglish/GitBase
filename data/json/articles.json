@@ -47,5 +47,12 @@
     "date": "2024-08-11T13:16:44.231Z",
     "lastModified": "2024-09-26T08:57:53Z",
     "path": "data/md/managing-articles.md"
+  },
+  {
+    "title": "记一次忘记WORDPRESS 管理员密码的恢复",
+    "description": "试了90%的忘记密码的方法,都未能解决",
+    "date": "2024-10-15T02:25:45.750Z",
+    "lastModified": "2024-10-15T02:25:45Z",
+    "path": "data/md/wp-password.md"
   }
 ]
