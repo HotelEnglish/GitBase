@@ -55,7 +55,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-200 pt-8">
           <p className="text-base text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} 龚老师技术加持
+            &copy; {new Date().getFullYear()} 龚老师技术加持 <a href="https://beian.miit.gov.cn/" target="_blank">琼ICP备19001286号-6</a>
           </p>
         </div>
       </div>
